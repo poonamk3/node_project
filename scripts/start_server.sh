@@ -1,2 +1,1 @@
-cd /var/www/test
-npm start
+echo "after install ;)"
