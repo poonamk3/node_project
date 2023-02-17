@@ -18,9 +18,9 @@ hooks:
       timeout: 300
       runas: ubuntu
 
-    - location: scripts/nginx.sh
-      timeout: 300
-      runas: ubuntu
+    # - location: scripts/nginx.sh
+    #   timeout: 300
+    #   runas: ubuntu
 
   ApplicationStart:
     - location: scripts/applicationstart.sh
