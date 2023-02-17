@@ -1,2 +1,2 @@
-cd /var/www/test
+cd /var/www/myapp
 npm start
