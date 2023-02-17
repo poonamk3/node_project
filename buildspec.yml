@@ -1,0 +1,20 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+    commands:
+      - echo Installing
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies.
+      - npm set-script prepare ""
+      - yarn install
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Compiling the Next JS code
+      - yarn run build
+artifacts:
+  files:
+    - "**/*"

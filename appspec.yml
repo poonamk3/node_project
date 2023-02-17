@@ -1,0 +1,24 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/myapp
+permissions:
+  - object: /var/www/myapp
+    owner: ubuntu
+    group: ubuntu
+    mode: 755
+hooks:
+  BeforeInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: scripts/start_server.sh
+      timeout: 300
+      runas: ubuntu
+
+  ApplicationStart:
+    - location: scripts/applicationstart.sh
+
+
