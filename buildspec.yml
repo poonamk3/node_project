@@ -1,20 +1,43 @@
+# version: 0.2
+# phases:
+#   install:
+#     runtime-versions:
+#       nodejs: 16
+#     commands:
+#       - echo Installing
+#   pre_build:
+#     commands:
+#       - echo Installing source NPM dependencies.
+#       - npm set-script prepare ""
+      
+#   build:
+#     commands:
+#       - echo Build started on `date`
+#       - echo Compiling the Next JS code
+     
+# artifacts:
+#   files:
+#     - "**/*"
+
 version: 0.2
+
 phases:
   install:
     runtime-versions:
       nodejs: 16
-    commands:
-      - echo Installing
   pre_build:
     commands:
-      - echo Installing source NPM dependencies.
-      - npm set-script prepare ""
-      - yarn install
+      - echo Installing source NPM dependencies...
   build:
     commands:
       - echo Build started on `date`
-      - echo Compiling the Next JS code
-      - yarn run build
+      - echo Compiling the Node.js code
+  post_build:
+    commands:
+      - echo Build completed on `date`
+# Include only the files required for your application to run.
+# Do not use recursively include artifacts from node_modules directory as it will include unnecessary packages 
+# used only for building and testing.
 artifacts:
   files:
-    - "**/*"
+    - '**/*'
